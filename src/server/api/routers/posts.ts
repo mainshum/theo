@@ -1,0 +1,9 @@
+
+import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+
+export const postRouter = createTRPCRouter({
+  getAll: publicProcedure.query(({ ctx }) => {
+    console.log('call here')
+    return ctx.prisma.post.findMany();
+  }),
+});
